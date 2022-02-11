@@ -10,8 +10,8 @@
 
                         <div class="box">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Manage User</h3>
-                                <a href="{{ route('user.add') }}" style="float: right;" class="btn btn-rounded btn-primary mb-5">Add User</a>
+                                <h3 class="box-title">Manage School Subject</h3>
+                                <a href="{{ route('school.subject.add') }}" style="float: right;" class="btn btn-rounded btn-primary mb-5">Add Subject</a>
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
@@ -20,24 +20,18 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Role</th>
                                                 <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Code</th>
                                                 <th with="25%">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($allData as $key=> $item)
+                                            @foreach ($data as $key=> $item)
                                                 <tr>
                                                     <td>{{ $key+1 }}</td>
-                                                    <td>{{ $item->role }}</td>
                                                     <td>{{ $item->name }}</td>
-                                                    <td>{{ $item->email }}</td>
-                                                    <td>{{ $item->code }}</td>
                                                     <td>
-                                                        <a href="{{ route('user.edit', $item->id) }}" class="btn btn-info mb-5">Edit</a>
-                                                        <a href="{{ route('user.delete', $item->id) }}" id="delete" class="btn btn-danger mb-5">Delete</a>
+                                                        <a href="{{ route('school.subject.edit', $item->id) }}" class="btn btn-info mb-5">Edit</a>
+                                                        <a href="{{ route('school.subject.delete', $item->id) }}" id="delete" class="btn btn-danger mb-5">Delete</a>
                                                     </td>
                                                 </tr>
                                             @endforeach

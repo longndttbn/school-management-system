@@ -30,19 +30,22 @@
                 </a>
             </li>
 
-            <li class="treeview {{ ($prefix == '/users')? 'active':'' }}">
-                <a href="#">
-                    <i data-feather="message-circle"></i>
-                    <span>Manage User</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-right pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ route('user.view') }}"><i class="ti-more"></i>View User</a></li>
-                    <li><a href="{{ route('user.add') }}"><i class="ti-more"></i>Add User</a></li>
-                </ul>
-            </li>
+            @if (Auth::user()->role == "Admin")
+                <li class="treeview {{ ($prefix == '/users')? 'active':'' }}">
+                    <a href="#">
+                        <i data-feather="message-circle"></i>
+                        <span>Manage User</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ route('user.view') }}"><i class="ti-more"></i>View User</a></li>
+                        <li><a href="{{ route('user.add') }}"><i class="ti-more"></i>Add User</a></li>
+                    </ul>
+                </li>
+
+            @endif
 
             <li class="treeview {{ ($prefix == '/profile')? 'active':'' }}">
                 <a href="#">
@@ -58,49 +61,38 @@
                 </ul>
             </li>
 
-            <li class="treeview">
+            <li class="treeview {{ ($prefix == '/setups')? 'active':'' }}">
                 <a href="#">
-                    <i data-feather="mail"></i> <span>Mailbox</span>
+                    <i data-feather="message-circle"></i>
+                    <span>Manage Setup</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="mailbox_inbox.html"><i class="ti-more"></i>Inbox</a></li>
-                    <li><a href="mailbox_compose.html"><i class="ti-more"></i>Compose</a></li>
-                    <li><a href="mailbox_read_mail.html"><i class="ti-more"></i>Read</a></li>
+                    <li><a href="{{ route('student.class.view') }}"><i class="ti-more"></i>Student Class</a></li>
+                    <li><a href="{{ route('student.year.view') }}"><i class="ti-more"></i>Student Year</a></li>
+                    <li><a href="{{ route('student.group.view') }}"><i class="ti-more"></i>Student Group</a></li>
+                    <li><a href="{{ route('student.shift.view') }}"><i class="ti-more"></i>Student Shift</a></li>
+                    <li><a href="{{ route('student.fee.view') }}"><i class="ti-more"></i>Fee Category</a></li>
+                    <li><a href="{{ route('fee.amount.view') }}"><i class="ti-more"></i>Fee Amount</a></li>
+                    <li><a href="{{ route('exam.type.view') }}"><i class="ti-more"></i>Exam Type</a></li>
+                    <li><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>School Subject</a></li>
                 </ul>
             </li>
-
-            <li class="treeview">
+            <li class="treeview {{ ($prefix == '/students')? 'active':'' }}">
                 <a href="#">
-                    <i data-feather="file"></i>
-                    <span>Pages</span>
+                    <i data-feather="message-circle"></i>
+                    <span>Manage Students</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="profile.html"><i class="ti-more"></i>Profile</a></li>
-                    <li><a href="invoice.html"><i class="ti-more"></i>Invoice</a></li>
-                    <li><a href="gallery.html"><i class="ti-more"></i>Gallery</a></li>
-                    <li><a href="faq.html"><i class="ti-more"></i>FAQs</a></li>
-                    <li><a href="timeline.html"><i class="ti-more"></i>Timeline</a></li>
+                    <li><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Student Registration</a></li>
                 </ul>
             </li>
 
-            <li class="header nav-small-cap">User Interface</li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i data-feather="grid"></i>
-                    <span>Components</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-right pull-right"></i>
-                    </span>
-                </a>
-
-            </li>
         </ul>
     </section>
 

@@ -17,7 +17,8 @@ class UserController extends Controller
 
     public function view()
     {
-        $allData = User::all();
+        //$allData = User::all();
+        $allData = User::where('type','Admin')->get();
         // compact chinh la data['allData']
         return view('backend.user.view_user', compact('allData'));
     }
@@ -30,10 +31,13 @@ class UserController extends Controller
         ]);
 
         $data = new User();
-        $data->type = $request->type;
+        $code = rand(0000,9999);
+        $data->type = 'Admin';
+        $data->role = $request->role;
         $data->name = $request->name;
         $data->email = $request->email;
-        $data->password = bcrypt($request->password);
+        $data->password = bcrypt($code);
+        $data->code = $code;
 
         $data->save();
 
@@ -54,7 +58,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $data = User::find($id);
-        $data->type = $request->type;
+        $data->role = $request->role;
         $data->name = $request->name;
         $data->email = $request->email;
 

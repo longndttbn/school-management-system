@@ -10,8 +10,8 @@
 
                         <div class="box">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Manage User</h3>
-                                <a href="{{ route('user.add') }}" style="float: right;" class="btn btn-rounded btn-primary mb-5">Add User</a>
+                                <h3 class="box-title">Manage Fee Amount</h3>
+                                <a href="{{ route('fee.amount.add') }}" style="float: right;" class="btn btn-rounded btn-primary mb-5">Add Fee Amount</a>
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
@@ -20,24 +20,18 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Role</th>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Code</th>
+                                                <th>Fee Category</th>
                                                 <th with="25%">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($allData as $key=> $item)
+                                            @foreach ($data as $key=> $item)
                                                 <tr>
                                                     <td>{{ $key+1 }}</td>
-                                                    <td>{{ $item->role }}</td>
-                                                    <td>{{ $item->name }}</td>
-                                                    <td>{{ $item->email }}</td>
-                                                    <td>{{ $item->code }}</td>
+                                                    <td>{{ $item['fee_category']['name'] }}</td>
                                                     <td>
-                                                        <a href="{{ route('user.edit', $item->id) }}" class="btn btn-info mb-5">Edit</a>
-                                                        <a href="{{ route('user.delete', $item->id) }}" id="delete" class="btn btn-danger mb-5">Delete</a>
+                                                        <a href="{{ route('fee.amount.edit', $item->fee_category_id) }}" class="btn btn-info mb-5">Edit</a>
+                                                        <a href="{{ route('fee.amount.detail', $item->fee_category_id) }}" class="btn btn-primary mb-5">Details</a>
                                                     </td>
                                                 </tr>
                                             @endforeach

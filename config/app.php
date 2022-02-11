@@ -179,6 +179,7 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
 
+
     ],
 
     /*
@@ -193,7 +194,6 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // ...
     ])->toArray(),
 
 ];

@@ -22,16 +22,16 @@
                                             <div class="form-group">
                                                 <h5>User Role <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <select name="type" id="type" required="" class="form-control">
+                                                    <select name="role" id="role" required="" class="form-control">
                                                         <option value="" disabled>Select Role</option>
                                                         <option value="Admin"
-                                                            {{ $user->type == 'Admin' ? 'selected' : '' }}>Admin</option>
-                                                        <option value="User" {{ $user->type == 'User' ? 'selected' : '' }}>User</option>
+                                                            {{ $user->role == 'Admin' ? 'selected' : '' }}>Admin</option>
+                                                        <option value="Operator" {{ $user->role == 'Operator' ? 'selected' : '' }}>Operator</option>
                                                     </select>
                                                     <div class="help-block"></div>
                                                 </div>
                                             </div>
- 
+
                                             <div class="form-group">
                                                 <h5>User Email <span class="text-danger">*</span></h5>
                                                 <div class="controls">
